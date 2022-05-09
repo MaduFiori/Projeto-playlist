@@ -15,14 +15,14 @@ mongoose.connect(urldb,{useNewUrlParser:true,useUnifiedTopology:true});
 /* -------------------------------------------------------------------------------------------------------------- */
 
 const tabela = mongoose.Schema({
-    nome:{type: String, require},
     email:{type: String, require},
+    cantor:{type: String, require},
     musica:{type:String, require}
 });
 
-const pessoa = mongoose.model("tbsugestao",tabela);
+const pessoa = mongoose.model("tbsugestaos",tabela);
 
-const default_route = "/api/tbsugestao";
+const default_route = "/api/tbsugestaos";
 
 app.get(`${default_route}/listar`,(req,res)=>{
     pessoa.find().then((dados)=>{
